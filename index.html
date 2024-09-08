@@ -1,7 +1,10 @@
 <!doctype html>
-<html>
-    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-        <title>Add to Cart</title>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Add to Cart & Payment</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
@@ -9,15 +12,56 @@
     </head>
     <body>
         <div class="container">
-            <img src="assets/cat.png">
-            <input type="text" id="input-field" placeholder="Bread">
-            <button id="add-button">Add to cart</button>
-            <ul id="shopping-list">
+            <img src="assets/cat.png" alt="Shopping Cat" class="cat-image">
+            <input type="text" id="input-field" placeholder="Enter item here..." class="input-field">
+            <button id="add-button" class="add-button">Add to Cart</button>
+            
+            <!-- File Upload Section -->
+            <input type="file" id="file-input" accept=".txt" class="file-input">
+            <button id="file-upload-button" class="upload-button">Upload Items</button>
+            
+            <ul id="shopping-list" class="shopping-list">
+                <!-- Items will be appended here -->
             </ul>
+
+            <!-- Proceed to Payment -->
+            <button id="proceed-payment" class="payment-button">Proceed to Payment</button>
+
+            <!-- Payment Section -->
+            <div id="payment-section" class="payment-section" style="display: none;">
+                <h3>Select Payment Method</h3>
+                <input type="radio" name="payment-method" id="mobile-money" value="mobile-money"> Mobile Money<br>
+                <input type="radio" name="payment-method" id="paypal" value="paypal"> PayPal<br>
+                
+                <!-- Mobile Money Input -->
+                <div id="mobile-money-input" style="display: none;">
+                    <label for="mobile-money-number">Mobile Money Number:</label>
+                    <input type="text" id="mobile-money-number" placeholder="+23275889542">
+                </div>
+                
+                <!-- PayPal Input -->
+                <div id="paypal-input" style="display: none;">
+                    <label for="paypal-email">PayPal Email:</label>
+                    <input type="email" id="paypal-email" placeholder="example@paypal.com">
+                </div>
+                
+                <!-- Submit Payment -->
+                <button id="submit-payment" class="submit-button">Submit Payment</button>
+                
+                <!-- Screenshot Upload -->
+                <div id="upload-screenshot" class="screenshot-upload" style="display: none;">
+                    <h3>Upload Payment Screenshot</h3>
+                    <input type="file" id="screenshot-input" accept="image/*" class="screenshot-input">
+                    <button id="upload-screenshot-button" class="upload-screenshot-button">Upload Screenshot</button>
+                    <p id="upload-status" style="display: none;">Screenshot uploaded successfully!</p>
+                </div>
+            </div>
         </div>
-        <script src="index.js" type="module"></script><footer>
-        <p>&copy; Develop By Hassan Imran</p>
-    </footer>
-        
+
+        <footer>
+            <p>&copy; Developed by Hassan Imran</p>
+        </footer>
+
+        <script src="index.js" type="module"></script>
     </body>
 </html>
